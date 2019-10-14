@@ -1,1 +1,7 @@
-<%= @message %>
+<h1>Forum</h1>
+<% @posts.each do |post|%>
+    <div>
+        <p>User: <%= post.username %></p>
+        <p>Body: <%= post.body %></p><br />
+    </div>
+<% end %>
