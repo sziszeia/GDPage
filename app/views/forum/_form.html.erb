@@ -1,15 +1,22 @@
 <%= form_for :post, url: forum_index_path do |f|%>
+    <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |message|%>
+            <div class="alert alert-danger m-5">
+                <%= message %>
+            </div>
+        <% end %>
+    <% end %>
     <p>
         <%= f.label :username %><br />
-        <%= f.text_field :username %>
+        <%= f.text_field(:username, {:class => 'form-control'}) %>
     </p>
 
     <p>
         <%= f.label :body %><br />
-        <%= f.text_field :body %>
+        <%= f.text_area(:body, {:class => 'form-control'}) %>
     </p>
 
     <p>
-        <%= f.submit %>
+        <%= f.submit({:class => 'btn btn-primary'})  %>
     </p>
 <% end %>
