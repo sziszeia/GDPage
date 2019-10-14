@@ -7,8 +7,8 @@ class ForumController < ApplicationController
         @post = Post.find(params[:id])
     end
 
-    def newpost
-
+    def new
+        @post = Post.new
     end
 
     def create
@@ -19,7 +19,7 @@ class ForumController < ApplicationController
               format.html { redirect_to action: 'show', id: @post.id, notice: 'Post was successfully created.' }
               format.json { render :show, status: :created, location: @post }
             else
-              format.html { render :newpost }
+              format.html { render :new }
               format.json { render json: @post.errors, status: :unprocessable_entity }
             end
         end
