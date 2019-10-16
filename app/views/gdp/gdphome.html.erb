@@ -1,1 +1,13 @@
+<h1>GDP</h1>
+<% @indicators.each do |indicator|%>
+    <%= indicator.IndicatorCode%>
+    <%= indicator.IndicatorName%>
+    <%= indicator.SourceNote%>
+<% end %>
 <br /><br /><br /><br /><%= @message%>
+<% @countries.each do |country| %>
+    <p><%= country.CountryCode %></p>
+    <p><%= country.Region %></p>
+    <p><%= country.IncomeGroup %></p>
+    <p><%= country.SpecialNotes %></p>
+<% end %>
