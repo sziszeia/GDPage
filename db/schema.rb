@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_071723) do
+ActiveRecord::Schema.define(version: 2019_10_16_212122) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string "CountryCode"
+    t.string "Region"
+    t.string "IncomeGroup"
+    t.string "SpecialNotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "indicators", force: :cascade do |t|
+    t.string "IndicatorCode"
+    t.string "IndicatorName"
+    t.string "SourceNote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "body"

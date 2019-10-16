@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  IndicatorCode: MyString
+  IndicatorName: MyString
+  SourceNote: MyString
+
+two:
+  IndicatorCode: MyString
+  IndicatorName: MyString
+  SourceNote: MyString
