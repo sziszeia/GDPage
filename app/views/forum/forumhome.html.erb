@@ -1,4 +1,5 @@
 <h1>Forum</h1>
+<a href="forum/new" class="btn btn-secondary">New Post</a>
 <% @posts.each do |post|%>
     <div class="card m-5">
         <div class="card-body">
@@ -7,11 +8,12 @@
                     <p>User: <%= post.username %></p>
                 </div>
                 <div class="col-sm-6">
-                    <%= post.created_at %></p>
+                    <%= post.created_at.strftime("%d-%m-%Y %H:%M") %></p>
                 </div>
-            </div>
-            <div class="row">
-                <p>Body: <%= post.body %></p><br />
+            </div>            
+            <hr />
+            <div class="row pl-5 pr-5">
+                <p><%= post.body %></p><br />
             </div>
         </div>
     </div>

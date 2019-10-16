@@ -1,6 +1,6 @@
 class ForumController < ApplicationController
     def forumhome
-        @posts = Post.all
+        @posts = Post.all.order(created_at: :desc)
     end
 
     def show
@@ -16,7 +16,7 @@ class ForumController < ApplicationController
 
         respond_to do |format|
             if @post.save
-              format.html { redirect_to action: 'show', id: @post.id, notice: 'Post was successfully created.' }
+              format.html { redirect_to action: 'forumhome', notice: 'Post was successfully created.' }
               format.json { render :show, status: :created, location: @post }
             else
               format.html { render :new }
