@@ -1,4 +1,17 @@
 <h1>GDP</h1>
+<% @gdps.each do |gdp| %>
+    <%= gdp.CountryName%>
+    <%= gdp.CountryCode%>
+    <%= gdp.IndicatorName%>
+    <%= gdp.IndicatorCode%>
+    <%= gdp.Y2000%>
+    <%= gdp.Y2001%>
+    <%= gdp.Y2002%>
+    <%= gdp.Y2003%>
+    <%= gdp.Y2004%>
+    <br />
+<% end %>
+
 <% @indicators.each do |indicator|%>
     <%= indicator.IndicatorCode%>
     <%= indicator.IndicatorName%>
