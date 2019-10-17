@@ -1,32 +1,38 @@
 <div class="container-flex">
-<h1>GDP</h1><hr />
-<div class="m-5">
-    <%= render "countrySelectForm"%>
-</div>
-<div class="row">   
-    <div class="col-xs-6">
-        <div class="card" style="width: 350px; height: 300px; overflow:auto;">
-            <div class="card-body">
-                <h2>Country details</h2><hr />
-                <p><strong>Country Code:</strong> <%= @country.CountryCode %></p>
-                <p><strong>Region:</strong> <%= @country.Region%></p>
-                <p><strong>Income Group:</strong> <%= @country.IncomeGroup%></P>
-                <p><strong>Special Notes:</strong> <%= @country.SpecialNotes%></p>
+    <h1>GDP</h1><hr />
+    <div class="m-5">
+        <%= render "countrySelectForm"%>
+    </div>
+    <div class="row">  
+        <div class="col-xs-4">
+            <div class="card" style="width: 350px; height: 300px; overflow:auto;">
+                <div class="card-body">
+                    <h2>Country details</h2><hr />
+                    <p><strong>Country Code:</strong> <%= @country.CountryCode %></p>
+                    <p><strong>Region:</strong> <%= @country.Region%></p>
+                    <p><strong>Income Group:</strong> <%= @country.IncomeGroup%></P>
+                    <p><strong>Special Notes:</strong> <%= @country.SpecialNotes%></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-xs-6">
-        <div class="card" style="width: 350px; height: 300px; overflow: auto;">
-            <div class="card-body">
-                <h2>Indicator details</h2><hr />
-                <p><strong>Indicator Code:</strong> <%= @indicator.IndicatorCode%></p>
-                <p><strong>Indicator Name:</strong> <%= @indicator.IndicatorName%></p>
-                <p><strong>Source Note:</strong> <%= @indicator.SourceNote%></p>
-            </div>            
-        </div>
-    </div>
-<div>
-    <div class="card" style="width: 700px; height: 600px;">
+        <div class="col-xs-4">
+            <div class="card" style="width: 350px; height: 300px; overflow: auto;">
+                <div class="card-body">
+                    <h2>Indicator details</h2><hr />
+                    <p><strong>Indicator Code:</strong> <%= @indicator.IndicatorCode%></p>
+                    <p><strong>Indicator Name:</strong> <%= @indicator.IndicatorName%></p>
+                    <p><strong>Source Note:</strong> <%= @indicator.SourceNote%></p>
+                </div>            
+            </div>
+        </div>     
+        <div class="col-xs-4">
+            <iframe width="300" height="300" frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAOfTYck0uRD8lQfauupsJgS_PLC5riwD4&q=<%=@gdp.CountryName%>"
+                allowfullscreen>
+            </iframe>
+        </div>  
+    <div>
+    <div class="card" style="width: 1000px; height: 600px;">
         <div class="card-body">
             <div id="container" style="width:100%;height:400px;"></div>
         </div>
@@ -41,7 +47,7 @@
                 type: 'line'
             },
             title: {
-                text: 'GDP Per Capita (current US $) PPP'
+                text: 'GDP Per Capita (current US $) PPP \n (Source: World Bank)'
             },
             xAxis: {
                 categories: <%=raw @years%>
