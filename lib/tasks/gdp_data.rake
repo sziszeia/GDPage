@@ -46,7 +46,10 @@ namespace :gdp_data do
     encoding: "bom|utf-8",
     :headers => true).with_index do |row, i|
 
+      # As this csv file has a few rows on top which are not of interest for the app, they are skipped through
+      # until the first data row
       next if i <= 3
+      
       puts row.inspect #just so that we know the file's being read
 
       # create new model instances
@@ -76,8 +79,9 @@ namespace :gdp_data do
         Y2018: row[62],
       )
 
-      puts u.valid?
-      puts u.errors.messages
+      # Below could help identifying potential issues 
+      # puts u.valid?
+      # puts u.errors.messages
     end
   end
 end
