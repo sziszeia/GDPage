@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   # Add all CRUD routes for controllers
   
-  resources :gdp
+  resources :gdp do
+    collection do
+      get :search 
+    end
+  end
   resources :forum
 end

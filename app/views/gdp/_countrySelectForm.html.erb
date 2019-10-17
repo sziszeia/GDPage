@@ -1,0 +1,6 @@
+<%= form_tag gdp_index_path, method: :get do %>
+  <%= select_tag "SelectCountry", options_for_select(@countries.collect{ |c| [c.CountryCode, c.CountryCode]})%>
+  <%= submit_tag "SelectCountry", class: "btn btn-secondary"%>
+<% end %>
+
+
