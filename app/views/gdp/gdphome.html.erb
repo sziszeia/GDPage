@@ -1,36 +1,11 @@
-<h1>GDP</h1>
-
-<%= render 'countrySelectForm'%>
-<% @gdps.each do |gdp| %>
-    <%= gdp.CountryName%>
-    <%= gdp.CountryCode%>
-    <%= gdp.IndicatorName%>
-    <%= gdp.IndicatorCode%>
-    <%= gdp.Y2000%>
-    <%= gdp.Y2001%>
-    <%= gdp.Y2002%>
-    <%= gdp.Y2003%>
-    <%= gdp.Y2004%>
-    <br />
-<% end %>
-
-<% @indicators.each do |indicator|%>
-    <%= indicator.IndicatorCode%>
-    <%= indicator.IndicatorName%>
-    <%= indicator.SourceNote%>
-<% end %>
-<br /><br /><br /><br /><%= @message%>
-<% @countries.each do |country| %>
-    <p><%= country.CountryCode %></p>
-    <p><%= country.Region %></p>
-    <p><%= country.IncomeGroup %></p>
-    <p><%= country.SpecialNotes %></p>
-<% end %>
-
 <div class="container-flex">
+<h1>GDP</h1><hr />
+<div class="m-5">
+    <%= render "countrySelectForm"%>
+</div>
 <div class="row">   
     <div class="col-xs-6">
-        <div class="card" style="width: 350px; height: 300px;">
+        <div class="card" style="width: 350px; height: 300px; overflow:auto;">
             <div class="card-body">
                 <h2>Country details</h2><hr />
                 <p><strong>Country Code:</strong> <%= @country.CountryCode %></p>
@@ -41,10 +16,12 @@
         </div>
     </div>
     <div class="col-xs-6">
-        <div class="card" style="width: 350px; height: 300px;">
+        <div class="card" style="width: 350px; height: 300px; overflow: auto;">
             <div class="card-body">
-                <h2>Indicator details</h2>
+                <h2>Indicator details</h2><hr />
                 <p><strong>Indicator Code:</strong> <%= @indicator.IndicatorCode%></p>
+                <p><strong>Indicator Name:</strong> <%= @indicator.IndicatorName%></p>
+                <p><strong>Source Note:</strong> <%= @indicator.SourceNote%></p>
             </div>            
         </div>
     </div>

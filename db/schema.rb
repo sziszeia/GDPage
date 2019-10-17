@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_220920) do
+ActiveRecord::Schema.define(version: 2019_10_17_120022) do
 
   create_table "countries", force: :cascade do |t|
     t.string "CountryCode"
@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 2019_10_16_220920) do
     t.decimal "Y2018"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "Country_id"
+    t.integer "Index_id"
+    t.index ["Country_id"], name: "index_gdp_pcs_on_Country_id"
+    t.index ["Index_id"], name: "index_gdp_pcs_on_Index_id"
   end
 
   create_table "indicators", force: :cascade do |t|

@@ -50,6 +50,22 @@ namespace :gdp_data do
       # until the first data row
       next if i <= 3
       
+      country = Country.where(CountryCode: row[1]).take
+      if country
+        puts country.CountryCode
+        puts country.id
+      else
+        puts "No data for country here"
+      end
+
+      indicator = Indicator.where(IndicatorCode: row[3]).take
+      if indicator
+        puts indicator.IndicatorCode
+        puts indicator.id
+      else
+        puts "No data for indicator here"
+      end
+
       puts row.inspect #just so that we know the file's being read
 
       # create new model instances
@@ -77,6 +93,8 @@ namespace :gdp_data do
         Y2016: row[60],
         Y2017: row[61],
         Y2018: row[62],
+        Country_id: country&.id,
+        Index_id: indicator&.id
       )
 
       # Below could help identifying potential issues 
