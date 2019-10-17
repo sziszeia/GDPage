@@ -1,4 +1,6 @@
 <h1>GDP</h1>
+
+<%= render 'countrySelectForm'%>
 <% @gdps.each do |gdp| %>
     <%= gdp.CountryName%>
     <%= gdp.CountryCode%>
@@ -24,3 +26,62 @@
     <p><%= country.IncomeGroup %></p>
     <p><%= country.SpecialNotes %></p>
 <% end %>
+
+<div class="container-flex">
+<div class="row">   
+    <div class="col-xs-6">
+        <div class="card" style="width: 350px; height: 300px;">
+            <div class="card-body">
+                <h2>Country details</h2><hr />
+                <p><strong>Country Code:</strong> <%= @country.CountryCode %></p>
+                <p><strong>Region:</strong> <%= @country.Region%></p>
+                <p><strong>Income Group:</strong> <%= @country.IncomeGroup%></P>
+                <p><strong>Special Notes:</strong> <%= @country.SpecialNotes%></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="card" style="width: 350px; height: 300px;">
+            <div class="card-body">
+                <h2>Indicator details</h2>
+                <p><strong>Indicator Code:</strong> <%= @indicator.IndicatorCode%></p>
+            </div>            
+        </div>
+    </div>
+<div>
+    <div class="card" style="width: 700px; height: 600px;">
+        <div class="card-body">
+            <div id="container" style="width:100%;height:400px;"></div>
+        </div>
+    </div>
+</div>
+
+ 
+<script type="text/javascript">
+    $(function () {
+        var myChart = Highcharts.chart('container',{
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'GDP Per Capita (current US $) PPP'
+            },
+            xAxis: {
+                categories: <%=raw @years%>
+            },
+            yAxis: {
+                title: {
+                    text: 'GDP Per Capita'
+                }, 
+                label: {
+                    format: '{$value}'
+                },            
+                tickInterval: 1000,
+            },
+            series: [{
+                name: 'GDP for ' + '<%=raw @country.CountryCode%>',
+                data: <%=raw @annual_gdp %>
+            }]
+        });
+    });
+</script>
