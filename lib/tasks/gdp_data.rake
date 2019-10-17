@@ -50,7 +50,7 @@ namespace :gdp_data do
       puts row.inspect #just so that we know the file's being read
 
       # create new model instances
-      GdpPc.create!(
+      u = GdpPc.create!(
         CountryName: row[0],
         CountryCode: row[1],
         IndicatorName: row[2],
@@ -75,6 +75,9 @@ namespace :gdp_data do
         Y2017: row[61],
         Y2018: row[62],
       )
+
+      puts u.valid?
+      puts u.errors.messages
     end
   end
 end
