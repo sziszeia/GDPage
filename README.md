@@ -10,7 +10,7 @@ Run bundle install If the sqlite3 database isn't already present, then seed the 
 rake gdp_data:seed_data
 
 Access the application using:http://localhost:3000
-Group Members:
+<p>Group Members:</p>
 Szilvia Horvath (51982068)
 
 
